@@ -1,0 +1,454 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Gautam T — E-Portfolio</title>
+  <meta name="description" content="E-Portfolio of Thota Venkat Mani Sankar Sai Gautam — B.Tech CSE, IIIT Sricity" />
+  <style>
+    /* =============================
+       Root Variables
+    ============================= */
+    :root {
+      --bg: #0f1724;
+      --card: #0b1220;
+      --muted: #9aa4b2;
+      --accent: #6ee7b7;
+      --glass: rgba(255, 255, 255, 0.03);
+      --maxw: 1100px;
+
+      font-family: Inter, system-ui, -apple-system, 
+                   "Segoe UI", Roboto, "Helvetica Neue", Arial;
+    }
+
+    /* =============================
+       Global Reset & Body
+    ============================= */
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      background: linear-gradient(180deg, #071028 0%, #071223 60%);
+      color: #e6eef6;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .wrap {
+      max-width: var(--maxw);
+      margin: 36px auto;
+      padding: 28px;
+    }
+
+    /* =============================
+       Header & Navigation
+    ============================= */
+    header {
+      display: flex;
+      gap: 20px;
+      align-items: center;
+    }
+
+    .avatar {
+      width: 112px;
+      height: 112px;
+      border-radius: 50%;             /* make it circular */
+      overflow: hidden;               /* crop overflow */
+      border: 3px solid var(--accent);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      color: #042029;
+      font-size: 28px;
+      background: linear-gradient(135deg, var(--accent), #60a5fa);
+    }
+
+    .avatar img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;              /* keeps image proportion */
+      display: block;
+    }
+
+    .title h1 {
+      margin: 0;
+      font-size: 26px;
+      letter-spacing: 0.2px;
+    }
+
+    .title p {
+      margin: 6px 0 0;
+      color: var(--muted);
+    }
+
+    nav {
+      margin-top: 18px;
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+
+    .pill {
+      background: var(--glass);
+      padding: 8px 12px;
+      border-radius: 10px;
+      color: var(--muted);
+      cursor: pointer;
+      border: 1px solid rgba(255, 255, 255, 0.02);
+      font-size: 14px;
+    }
+
+    /* =============================
+       Layout Grid
+    ============================= */
+    .grid {
+      display: grid;
+      grid-template-columns: 1fr 320px;
+      gap: 22px;
+      margin-top: 26px;
+    }
+
+    main {
+      background: linear-gradient(180deg, rgba(255, 255, 255, 0.02), transparent);
+      padding: 20px;
+      border-radius: 12px;
+    }
+
+    aside {
+      position: sticky;
+      top: 28px;
+      align-self: start;
+      background: var(--card);
+      padding: 18px;
+      border-radius: 12px;
+    }
+
+    /* =============================
+       Sections
+    ============================= */
+    section {
+      margin-bottom: 18px;
+    }
+
+    h2 {
+      margin: 0 0 10px 0;
+      font-size: 18px;
+    }
+
+    /* =============================
+       Education Table
+    ============================= */
+    .edu-table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+
+    .edu-table td {
+      padding: 8px 6px;
+      border-bottom: 1px dashed rgba(255, 255, 255, 0.03);
+      color: var(--muted);
+    }
+
+    /* =============================
+       Skills Chips
+    ============================= */
+    .chips {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+
+    .chip {
+      background: rgba(255, 255, 255, 0.03);
+      padding: 6px 10px;
+      border-radius: 8px;
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    /* =============================
+       Projects Cards
+    ============================= */
+    .projects {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 12px;
+    }
+
+    .card {
+      background: linear-gradient(180deg, rgba(255, 255, 255, 0.02), rgba(255, 255, 255, 0.01));
+      padding: 12px;
+      border-radius: 10px;
+      border: 1px solid rgba(255, 255, 255, 0.02);
+    }
+
+    .card h3 {
+      margin: 0 0 6px 0;
+      font-size: 15px;
+    }
+
+    .meta {
+      font-size: 13px;
+      color: var(--muted);
+    }
+
+    /* =============================
+       Buttons
+    ============================= */
+    .btn {
+      display: inline-block;
+      padding: 8px 12px;
+      border-radius: 8px;
+      background: var(--accent);
+      color: #042029;
+      font-weight: 600;
+      text-decoration: none;
+    }
+
+    /* =============================
+       Footer
+    ============================= */
+    footer {
+      margin-top: 18px;
+      color: var(--muted);
+      font-size: 13px;
+      text-align: center;
+    }
+
+    /* =============================
+       Resume Embed
+    ============================= */
+    .resume-embed {
+      width: 100%;
+      height: 480px;
+      border-radius: 8px;
+      border: 1px solid rgba(255, 255, 255, 0.03);
+      overflow: hidden;
+    }
+
+    /* =============================
+       Responsive
+    ============================= */
+    @media (max-width: 900px) {
+      .grid {
+        grid-template-columns: 1fr;
+      }
+      .avatar {
+        width: 84px;
+        height: 84px;
+        font-size: 20px;
+      }
+      .resume-embed {
+        height: 320px;
+      }
+    }
+
+    /* =============================
+       Utilities
+    ============================= */
+    .contact-list {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    a.icon {
+      color: var(--muted);
+      text-decoration: none;
+    }
+
+    .section-hr {
+      height: 1px;
+      background: linear-gradient(90deg, transparent, #fff2, transparent);
+      margin: 12px 0;
+      border-radius: 4px;
+    }
+
+    .reflection {
+      background: linear-gradient(180deg, rgba(255, 255, 255, 0.01), transparent);
+      padding: 10px;
+      border-radius: 8px;
+      color: var(--muted);
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <div class="avatar">
+        <img src="profile.jpg" alt="Profile Picture" />
+      </div>
+      <div class="title">
+        <h1>Thota Venkat Mani Sankar Sai Gautam</h1>
+        <p>B.Tech (CSE) — Indian Institute of Information Technology, Sricity · 
+          <span style="color:var(--accent)">8.45 CGPA (upto 4th sem)</span></p>
+        <nav>
+          <div class="pill" data-scroll="about">About</div>
+          <div class="pill" data-scroll="education">Education</div>
+          <div class="pill" data-scroll="skills">Skills</div>
+          <div class="pill" data-scroll="projects">Projects</div>
+          <div class="pill" data-scroll="resume">Resume</div>
+          <div class="pill" data-scroll="contact">Contact</div>
+        </nav>
+      </div>
+    </header>
+
+    <div class="grid">
+      <main>
+        <section id="about">
+          <h2>Personal Statement</h2>
+          <div class="reflection">
+            As a Computer Science student at IIIT Sricity, I am passionate about artificial intelligence and machine learning. 
+            My work focuses on practical ML pipelines and data-driven solutions. 
+            I enjoy collaborative projects, problem-solving, and learning new algorithms and tools.
+          </div>
+        </section>
+
+        <section id="education">
+          <h2>Education</h2>
+          <table class="edu-table">
+            <tr>
+              <td><strong>B.Tech., Computer Science & Engineering</strong><br>
+                <span class="meta">Indian Institute of Information Technology, Sricity — 2027</span></td>
+              <td style="text-align:right"><strong>8.45</strong><br><span class="meta">upto 4th sem</span></td>
+            </tr>
+            <tr>
+              <td><strong>Senior Secondary</strong><br>
+                <span class="meta">Tirumala Junior College — May 2023</span></td>
+              <td style="text-align:right"><strong>975 / 1000</strong></td>
+            </tr>
+            <tr>
+              <td><strong>Secondary</strong><br>
+                <span class="meta">Sri Gowthami Smart School — 2021</span></td>
+              <td style="text-align:right"><strong>600 / 600</strong></td>
+            </tr>
+          </table>
+        </section>
+
+        <section id="skills">
+          <h2>Skills</h2>
+          <div class="chips">
+            <span class="chip">C</span>
+            <span class="chip">Java</span>
+            <span class="chip">Python</span>
+            <span class="chip">MySQL</span>
+            <span class="chip">HTML</span>
+            <span class="chip">CSS</span>
+            <span class="chip">JavaScript</span>
+            <span class="chip">Pandas</span>
+            <span class="chip">NumPy</span>
+            <span class="chip">Matplotlib</span>
+            <span class="chip">Scikit-learn</span>
+            <span class="chip">TensorFlow (basic)</span>
+            <span class="chip">Git</span>
+            <span class="chip">Jupyter Notebook</span>
+          </div>
+        </section>
+
+        <section id="projects">
+          <h2>Work Experience & Projects</h2>
+          <div class="projects">
+            <article class="card">
+              <h3>SMS Spam Detection</h3>
+              <div class="meta">Python · Scikit-learn · XGBoost · CountVectorizer</div>
+              <p class="meta">Built classifiers (Naive Bayes, XGBoost) on SMS Spam Collection dataset. Best accuracy: <strong>98.3%</strong>.</p>
+              <p><a class="icon" href="https://github.com/vikk456/Spam-Detection" target="_blank">View repository →</a></p>
+            </article>
+
+            <article class="card">
+              <h3>Hate Speech Detection</h3>
+              <div class="meta">Python · NLP · Logistic Regression</div>
+              <p class="meta">Text classification pipeline for detecting hate speech in tweets. Focused on preprocessing, vectorization, and model evaluation. Accuracy > <strong>86%</strong>.</p>
+              <p><a class="icon" href="https://github.com/vikk456/Hate-Speech" target="_blank">View repository →</a></p>
+            </article>
+
+            <article class="card">
+              <h3>Credit Card Fraud Detection</h3>
+              <div class="meta">Python · KMeans · AutoEncoder</div>
+              <p class="meta">Unsupervised anomaly detection combining KMeans and AutoEncoder. Achieved recall ~ <strong>60%</strong> on fraud cases using reconstruction error.</p>
+              <p><a class="icon" href="https://github.com/vikk456/Credit-Card-Fraud-Detection" target="_blank">View repository →</a></p>
+            </article>
+          </div>
+        </section>
+
+        <section id="achievements">
+          <h2>Achievements & Certifications</h2>
+          <ul class="meta">
+            <li>Corizo — Artificial Intelligence</li>
+            <li>Coursera — Supervised Machine Learning: Regression and Classification</li>
+            <li>Coursera — Advanced Learning Algorithms</li>
+          </ul>
+        </section>
+
+        <section id="samples">
+          <h2>Samples of Work</h2>
+          <p class="meta">Repositories & notebooks with code, evaluation notebooks and charts. Click the project cards above or visit my GitHub.</p>
+          <p><a class="btn" href="https://github.com/vikk456" target="_blank">Open GitHub Profile</a></p>
+        </section>
+
+        <section id="resume">
+          <h2>Resume</h2>
+          <p class="meta">Click to download or view embedded resume</p>
+          <p style="margin:10px 0"><a class="btn" href="resume.pdf" download>Download Resume (PDF)</a></p>
+          <div class="resume-embed">
+            <iframe src="resume.pdf" style="width:100%;height:100%;border:0" title="Resume"></iframe>
+          </div>
+        </section>
+
+        <section id="reflection">
+          <h2>Reflections / Personal Statement</h2>
+          <div class="reflection">
+            Working on ML projects taught me the importance of proper preprocessing, evaluation metrics selection, and reproducible code. 
+            I aim to take part in internships where I can build robust ML systems and contribute to open-source research.
+          </div>
+        </section>
+      </main>
+
+      <aside>
+        <section>
+          <h2>Contact & Links</h2>
+          <div class="contact-list">
+            <div><strong>Email:</strong> <a class="icon" href="mailto:vikkygautam0503@gmail.com">vikkygautam0503@gmail.com</a></div>
+            <div><strong>Phone:</strong> +91-8309042344</div>
+            <div><strong>GitHub:</strong> <a class="icon" href="https://github.com/vikk456" target="_blank">github.com/vikk456</a></div>
+          </div>
+        </section>
+
+        <div class="section-hr"></div>
+
+        <section>
+          <h2>Quick CV</h2>
+          <p class="meta"><strong>Degree:</strong> B.Tech (CSE) — IIIT Sricity<br>
+            <strong>CGPA:</strong> 8.45</p>
+          <p class="meta"><strong>Top Skills:</strong> Python · ML · Data Analysis · Web Tech</p>
+        </section>
+
+        <div class="section-hr"></div>
+
+        <section>
+          <h2>References</h2>
+          <p class="meta">References available on request — include a short line about faculty or mentor you'd like listed here.</p>
+        </section>
+      </aside>
+    </div>
+
+    <footer>
+      <p>Made by <strong>Thota Venkat Mani Sankar Sai Gautam</strong> — 
+        <a class="icon" href="https://github.com/vikk456" target="_blank">github.com/vikk456</a></p>
+    </footer>
+  </div>
+
+  <script>
+    // Smooth scrolling
+    document.querySelectorAll('[data-scroll]').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const id = btn.getAttribute('data-scroll');
+        const el = document.getElementById(id);
+        if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      });
+    });
+  </script>
+</body>
+</html>
