@@ -232,16 +232,20 @@
        Responsive
     ============================= */
     @media (max-width: 900px) {
-      .grid {
-        grid-template-columns: 1fr;
+      header {
+        flex-direction: column;   /* stack vertically */
+        align-items: center;      /* center horizontally */
+        text-align: center;       /* center the text too */
       }
+    
       .avatar {
-        width: 84px;
-        height: 84px;
-        font-size: 20px;
+        width: 120px;   /* slightly larger on mobile if you like */
+        height: 120px;
+        margin-bottom: 12px;
       }
-      .resume-embed {
-        height: 320px;
+    
+      .title {
+        text-align: center;
       }
     }
 
